@@ -1,14 +1,13 @@
 // src/components/Listagem.js
 import React, { useState, useEffect } from 'react';
-import '../Styles/cadastro.css';
+import '../Styles/Listagem.css';
 
+  
 const Listagem = () => {
   // Defina o estado para armazenar os registros
   const [registros, setRegistros] = useState([]);
 
   useEffect(() => {
-    // Aqui você pode buscar os registros armazenados (pode ser de um banco de dados, localStorage, etc.)
-    // Exemplo: obtendo registros armazenados no localStorage
     const registrosArmazenados = JSON.parse(localStorage.getItem('registros')) || [];
     setRegistros(registrosArmazenados);
   }, []);

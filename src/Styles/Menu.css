@@ -1,27 +1,31 @@
-/* src/styles/Menu.css */
+@import './tailwind.css';
+
 nav {
-    background-color: #333;
+    background-color: white;
     padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1rem;
   }
   
   ul {
     list-style-type: none;
-    margin: 0;
+    margin: 10%;
     padding: 0;
-    display: flex;
-    justify-content: space-around;
+    display: block;
+    justify-content: space-between;
   }
   
   li {
     display: inline;
+    margin: 0 10px; 
   }
   
   a {
-    color: white;
+    color: purple;
     text-decoration: none;
   }
   
   a:hover {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid rgb(77, 1, 77);
   }
   
