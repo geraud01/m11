@@ -1,0 +1,7 @@
+
+  .bottomCenter {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
