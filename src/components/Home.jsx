@@ -21,6 +21,9 @@ function Home() {
   };
 
   return (
+
+
+    
     <div>
       <div className="slider-container">
         <Slider
@@ -61,7 +64,14 @@ function Home() {
             Próximo
           </Button>
         </div>
-
+        <div className="text-center mt-8">
+        <p className="text-lg text-gray-700">
+          Explore a galeria de imagens com a funcionalidade de slider!<p/>
+          Utilizei React e React-Slick para criar uma experiência
+          interativa. Deslize para ver mais imagens e aproveite a navegação
+          fácil entre elas.
+        </p>
+      </div>
       </div>
     </div>
   );
