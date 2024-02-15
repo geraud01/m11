@@ -10,19 +10,24 @@ const Cadastro = () => {
   const [cidade, setCidade] = useState('');
   const [estado, setEstado] = useState('');
   const [cep, setCep] = useState('');
+  const [bairro, setBairro] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const novoRegistro = { nome, sobreNome, email, endereço, cidade, estado, cep, telefone };
+    // Cria um objeto com os dados do novo registro
+    const novoRegistro = { nome, sobreNome, email, endereço, cidade, estado, cep, telefone, bairro };
 
     const registrosExistente =
       JSON.parse(localStorage.getItem('registros')) || [];
 
+    // Adiciona o novo registro à lista existente
     const novosRegistros = [...registrosExistente, novoRegistro];
 
+    // Armazena os registros atualizados no localStorage
     localStorage.setItem('registros', JSON.stringify(novosRegistros));
 
+    // Limpa os campos após o envio
     setNome('');
     setSobreNome('');
     setEmail('');
@@ -31,6 +36,7 @@ const Cadastro = () => {
     setCidade('');
     setEstado('');
     setCep('');
+    setBairro('');
   };
 
   return (
@@ -45,58 +51,47 @@ const Cadastro = () => {
       <div className="mt-10 grid grid-cols-3 gap-x-3 gap-y-4 sm:grid-cols-2">
         <div className="sm:col-span-1">
           <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">Primeiro nome:</label>
-          <div className="mt-2">
-            <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} name="first-name" id="first-name" autoComplete="given-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-          </div>
+          <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} name="first-name" id="first-name" autoComplete="given-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
         </div>
 
         <div className="sm:col-span-1">
           <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900">Sobrenome:</label>
-          <div className="mt-2">
-            <input type="text" value={sobreNome} onChange={(e) => setSobreNome(e.target.value)} name="last-name" id="last-name" autoComplete="family-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-          </div>
+          <input type="text" value={sobreNome} onChange={(e) => setSobreNome(e.target.value)} name="last-name" id="last-name" autoComplete="family-name" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
         </div>
 
         <div className="sm:col-span-1">
           <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">Email:</label>
-          <div className="mt-2">
-            <input id="email" value={email} onChange={(e) => setEmail(e.target.value)} name="email" type="email" autoComplete="email" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-          </div>
+          <input id="email" value={email} onChange={(e) => setEmail(e.target.value)} name="email" type="email" autoComplete="email" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
         </div>
 
         <div className="sm:col-span-1">
           <label htmlFor="telefone" className="block text-sm font-medium leading-6 text-gray-900">Telefone:</label>
-          <div className="mt-2">
-            <input id="telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)} name="telefone" type="tel" autoComplete="telefone" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-          </div>
+          <input id="telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)} name="telefone" type="tel" autoComplete="telefone" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
         </div>
 
         <div className="sm:col-span-2">
           <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">Endereço:</label>
-          <div className="mt-2">
-            <input type="text" value={endereço} onChange={(e) => setEndereço(e.target.value)} name="street-address" id="street-address" autoComplete="street-address" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-          </div>
+          <input type="text" value={endereço} onChange={(e) => setEndereço(e.target.value)} name="street-address" id="street-address" autoComplete="street-address" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
         </div>
 
-        <div className="sm:col-span-1 sm:col-start-1">
+        <div className="sm:col-span-1">
+          <label htmlFor="bairro" className="block text-sm font-medium leading-6 text-gray-900">Bairro:</label>
+          <input type="text" value={bairro} onChange={(e) => setBairro(e.target.value)} name="bairro" id="bairro" autoComplete="address-level1" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+        </div>
+
+        <div className="sm:col-span-1">
           <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">Cidade:</label>
-          <div className="mt-2">
-            <input type="text" value={cidade} onChange={(e) => setCidade(e.target.value)} name="city" id="city" autoComplete="address-level2" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-          </div>
+          <input type="text" value={cidade} onChange={(e) => setCidade(e.target.value)} name="city" id="city" autoComplete="address-level2" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
         </div>
 
         <div className="sm:col-span-1">
           <label htmlFor="region" className="block text-sm font-medium leading-6 text-gray-900">Estado:</label>
-          <div className="mt-2">
-            <input type="text" value={estado} onChange={(e) => setEstado(e.target.value)} name="region" id="region" autoComplete="address-level1" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-          </div>
+          <input type="text" value={estado} onChange={(e) => setEstado(e.target.value)} name="region" id="region" autoComplete="address-level1" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
         </div>
 
         <div className="sm:col-span-1">
           <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">ZIP / CEP:</label>
-          <div className="mt-2">
-            <input type="text" value={cep} onChange={(e) => setCep(e.target.value)} name="postal-code" id="postal-code" autoComplete="postal-code" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-          </div>
+          <input type="text" value={cep} onChange={(e) => setCep(e.target.value)} name="postal-code" id="postal-code" autoComplete="postal-code" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
         </div>
       </div>
 
@@ -113,4 +108,3 @@ const Cadastro = () => {
 };
 
 export default Cadastro;
-

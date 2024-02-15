@@ -36,6 +36,7 @@ const Listagem = () => {
                 <TableCell>Sobrenome</TableCell>
                 <TableCell>Email</TableCell>
                 <TableCell>Endereço</TableCell>
+                <TableCell>Bairro</TableCell>
                 <TableCell>Cidade</TableCell>
                 <TableCell>Estado</TableCell>
                 <TableCell>CEP</TableCell>
@@ -49,6 +50,7 @@ const Listagem = () => {
                   <TableCell>{registro.sobreNome}</TableCell>
                   <TableCell>{registro.email}</TableCell>
                   <TableCell>{registro.endereço}</TableCell>
+                  <TableCell>{registro.bairro}</TableCell>
                   <TableCell>{registro.cidade}</TableCell>
                   <TableCell>{registro.estado}</TableCell>
                   <TableCell>{registro.cep}</TableCell>
