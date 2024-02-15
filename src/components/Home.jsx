@@ -1,64 +1,64 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function Home() {
-  const [updateCount, setUpdateCount] = useState(0);
+  let sliderRef = useRef(null);
+  const next = () => {
+    sliderRef.slickNext();
+  };
+  const previous = () => {
+    sliderRef.slickPrev();
+  };
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    afterChange: () => setUpdateCount(updateCount + 1),
-  };
-
-  const imageStyle = {
-    width: "90%",
-    height: "50%",
-    borderRadius: "8px",
-  };
-
-  const containerStyle = {
-    display: "block",
   };
 
   return (
-    <div className="slider-container" style={containerStyle}>
-      <p>Total updates: {updateCount} </p>
-      <Slider {...settings}>
-        <div>
-          <img
-            src="/imagens/pexels-aleksandar-pasaric-618079.jpg"
-            alt="Imagem 1"
-            style={imageStyle}
-          />
+    <div>
+      <div className="slider-container">
+        <Slider
+          ref={(slider) => {
+            sliderRef = slider;
+          }}
+          {...settings}
+        >
+          <div key={1}>
+            <img
+              src="../imagens/imagem1.png"
+              alt="Descrição da imagem 1"
+              style={{ width: "100%", height: "auto" }}
+            />
+          </div>
+          <div key={2}>
+            <img
+              src="../imagens/imagem2.png"
+              alt="Descrição da imagem 2"
+              style={{ width: "100%", height: "auto" }}
+            />
+          </div>
+        </Slider>
+        <div className="flex justify-center space-x-20 mt-4">
+          <button
+            className="button bg-blue-500 text-white"
+            onClick={previous}
+          >
+            Anterior
+          </button>
+          <button className="button bg-blue-500 text-white" onClick={next}>
+            Próximo
+          </button>
         </div>
-        <div>
-          <img
-            src="/imagens/pexels-chris-schippers-421927.jpg"
-            alt="Imagem 2"
-            style={imageStyle}
-          />
-        </div>
-        <div>
-          <img
-            src="/imagens/pexels-francesco-ungaro-409127.jpg"
-            alt="Imagem 3"
-            style={imageStyle}
-          />
-        </div>
-        <div>
-          <img
-            src="/imagens/pexels-lukas-kloeppel-466685.jpg"
-            alt="Imagem 4"
-            style={imageStyle}
-          />
-        </div>
-      </Slider>
+      </div>
     </div>
   );
 }
 
 export default Home;
+
+

@@ -26,7 +26,7 @@ const Listagem = () => {
 
   return (
     <div style={{ maxWidth: '1300px', margin: '3rem auto' }}>
-      <h2 style={{ textAlign: 'center', fontSize: '24px', fontWeight: 'bold', marginBottom:'2rem' }}>Página de Listagem</h2>
+      <h2 style={{ textAlign: 'center', fontSize: '24px', fontWeight: 'bold', marginBottom: '2rem' }}>Página de Listagem</h2>
       {registros.length > 0 ? (
         <TableContainer component={Paper}>
           <Table>
