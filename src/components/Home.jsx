@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import Slider from "react-slick";
+import Button from '@mui/material/Button';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -43,17 +44,24 @@ function Home() {
             />
           </div>
         </Slider>
-        <div className="flex justify-center space-x-20 mt-4">
-          <button
-            className="button bg-blue-500 text-white"
+
+        <div className="flex justify-center space-x-20 mt-5">
+          <Button
+            variant="contained"
+            color="primary"
             onClick={previous}
           >
             Anterior
-          </button>
-          <button className="button bg-blue-500 text-white" onClick={next}>
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={next}
+          >
             Próximo
-          </button>
+          </Button>
         </div>
+
       </div>
     </div>
   );
