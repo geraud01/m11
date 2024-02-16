@@ -7,10 +7,11 @@ const Cadastro = () => {
   const [email, setEmail] = useState('');
   const [telefone, setTelefone] = useState('');
   const [endereço, setEndereço] = useState('');
+  const [bairro, setBairro] = useState('');
   const [cidade, setCidade] = useState('');
   const [estado, setEstado] = useState('');
   const [cep, setCep] = useState('');
-  const [bairro, setBairro] = useState('');
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
