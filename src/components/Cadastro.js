@@ -28,7 +28,6 @@ const Cadastro = () => {
     // Armazena os registros atualizados no localStorage
     localStorage.setItem('registros', JSON.stringify(novosRegistros));
 
-    // Limpa os campos após o envio
     setNome('');
     setSobreNome('');
     setEmail('');
