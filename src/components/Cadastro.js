@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Styles/Cadastro.css';
+import '../Styles/cadastro.css';
 
 const Cadastro = () => {
   const [nome, setNome] = useState('');
